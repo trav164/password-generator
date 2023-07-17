@@ -1,13 +1,13 @@
 <script lang="ts">
-	export let password: string = 'P4$5W0rD!';
+	import { password } from '../../password';
 
 	const copyPassword = () => {
-		navigator.clipboard.writeText(password);
+		navigator.clipboard.writeText($password);
 	};
 </script>
 
 <div class="flex items-center justify-between bg-zinc-900 px-8 py-6">
-	<span class="tracking text-3xl font-semibold text-zinc-600">{password}</span>
+	<span class="tracking text-3xl font-semibold text-zinc-600">{$password}</span>
 
 	<button on:click|preventDefault={() => copyPassword()}>
 		<svg
