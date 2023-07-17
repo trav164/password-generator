@@ -1,5 +1,36 @@
 <script lang="ts">
 	$: charLength = 0;
+
+	$: settings = [
+		{
+			name: 'uppercase',
+			label: 'Include Uppercase Letters',
+			state: false
+		},
+		{
+			name: 'lowercase',
+			label: 'Include Lowercase Letters',
+			state: false
+		},
+		{
+			name: 'numbers',
+			label: 'Include Numbers',
+			state: false
+		},
+		{
+			name: 'symbols',
+			label: 'Include Symbols',
+			state: true
+		}
+	];
+
+	const updateSettings = (setting: string) => {
+		const toUpdate = settings.find((s) => s.name === setting);
+
+		if (!toUpdate) return;
+
+		toUpdate.state = !toUpdate.state;
+	};
 </script>
 
 <div class="flex w-full flex-col gap-8 bg-zinc-900 px-10 py-10 tracking-wide">
@@ -19,45 +50,18 @@
 		/>
 
 		<div class="flex flex-col gap-2">
-			<div class="flex items-center gap-4 text-zinc-200">
-				<input
-					class="h-4 w-4 appearance-none bg-transparent outline outline-1 outline-zinc-200"
-					id="uppercase"
-					type="checkbox"
-					value=""
-				/>
-				<label for="uppercase">Include Uppercase Letters</label>
-			</div>
-
-			<div class="flex items-center gap-4 text-zinc-200">
-				<input
-					class="h-4 w-4 appearance-none bg-transparent outline outline-1 outline-zinc-200"
-					id="uppercase"
-					type="checkbox"
-					value=""
-				/>
-				<label for="uppercase">Include Lowercase Letters</label>
-			</div>
-
-			<div class="flex items-center gap-4 text-zinc-200">
-				<input
-					class="h-4 w-4 appearance-none bg-transparent outline outline-1 outline-zinc-200"
-					id="uppercase"
-					type="checkbox"
-					value=""
-				/>
-				<label for="uppercase">Include Numbers</label>
-			</div>
-
-			<div class="flex items-center gap-4 text-zinc-200">
-				<input
-					class="h-4 w-4 appearance-none bg-transparent outline outline-1 outline-zinc-200"
-					id="uppercase"
-					type="checkbox"
-					value=""
-				/>
-				<label for="uppercase">Include Symbols</label>
-			</div>
+			{#each settings as setting}
+				<div class="flex items-center gap-4 text-zinc-200">
+					<input
+						class="h-4 w-4 appearance-none bg-transparent outline outline-1 outline-zinc-200 checked:bg-emerald-300"
+						id="uppercase"
+						type="checkbox"
+						checked={setting.state}
+						on:change={() => updateSettings(setting.name)}
+					/>
+					<label for="uppercase">{setting.label}</label>
+				</div>
+			{/each}
 		</div>
 
 		<div
