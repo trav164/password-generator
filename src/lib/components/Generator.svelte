@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { settings } from '../../password';
 	import Settings from './Settings.svelte';
 </script>
 

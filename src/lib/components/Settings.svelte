@@ -1,13 +1,5 @@
 <script lang="ts">
 	import { settings, passwordLength } from '../../password';
-
-	const updateSettings = (setting: string) => {
-		const toUpdate = $settings.find((s) => s.name === setting);
-
-		if (!toUpdate) return;
-
-		toUpdate.state = !toUpdate.state;
-	};
 </script>
 
 <div class="flex flex-col gap-8">
@@ -17,7 +9,7 @@
 	</div>
 
 	<input
-		class="range h-2 w-full cursor-pointer appearance-none bg-zinc-950 accent-zinc-200"
+		class="range h-2 w-full cursor-pointer appearance-none bg-zinc-950 accent-zinc-200 active:accent-emerald-300"
 		min="0"
 		max="20"
 		type="range"
@@ -28,13 +20,12 @@
 	<div class="flex flex-col gap-2">
 		{#each $settings as setting}
 			<div class="flex items-center gap-4 text-zinc-200">
-				<!-- <input
+				<input
 					class="h-4 w-4 appearance-none bg-transparent outline outline-1 outline-zinc-200 checked:bg-emerald-300"
 					id="uppercase"
 					type="checkbox"
-					checked={$settings[setting.name].state}
-					on:change={() => updateSettings(setting.name)}
-				/> -->
+					bind:checked={setting.state}
+				/>
 				<label for="uppercase">{setting.label}</label>
 			</div>
 		{/each}

@@ -21,7 +21,7 @@ export const settings = writable([
     {
         name: 'symbols',
         label: 'Include Symbols',
-        state: true
+        state: false
     }
 ]);
 

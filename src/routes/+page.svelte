@@ -1,6 +1,6 @@
 <script>
 	import Generator from '$lib/components/Generator.svelte';
-	import Password from '$lib/components/Password.svelte';
+	import PasswordDisplay from '$lib/components/PasswordDisplay.svelte';
 	import { password, settings, passwordLength } from '../password';
 </script>
 
@@ -10,6 +10,6 @@
 	<pre class="text-white">{JSON.stringify($passwordLength)}</pre>
 	<pre class="text-white">{JSON.stringify($password)}</pre>
 	<pre class="text-white">{JSON.stringify($settings)}</pre>
-	<Password />
+	<PasswordDisplay />
 	<Generator />
 </main>
