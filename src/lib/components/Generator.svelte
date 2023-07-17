@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { passwordLength, settings, password } from '../../password';
+	import Rating from './Rating.svelte';
 	import Settings from './Settings.svelte';
 
 	const generate = () => {
@@ -53,6 +54,8 @@
 <!-- <pre class="text-white">{JSON.stringify(isValid)}</pre> -->
 <div class="flex w-full flex-col gap-8 bg-zinc-900 px-10 py-10 tracking-wide">
 	<Settings />
+
+	<Rating />
 
 	<button
 		class={`flex flex-row items-center justify-center gap-2  py-4 font-semibold uppercase outline outline-2 transition-all duration-300  ${

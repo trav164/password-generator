@@ -2,7 +2,7 @@
 	import { password } from '../../password';
 
 	const copyPassword = () => {
-		// navigator.clipboard.writeText($password);
+		navigator.clipboard.writeText($password);
 	};
 </script>
 

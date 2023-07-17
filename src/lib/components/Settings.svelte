@@ -30,18 +30,4 @@
 			</div>
 		{/each}
 	</div>
-
-	<div
-		class="flex w-full flex-col items-center justify-between gap-4 bg-zinc-950 px-8 py-6 md:flex-row md:gap-0"
-	>
-		<span class="text-xs font-bold uppercase text-zinc-400 md:text-base">Strength</span>
-
-		<div class="flex flex-row items-center justify-center gap-3">
-			<span class="mr-1 text-sm uppercase text-zinc-300 md:text-2xl">strong</span>
-
-			{#each Array(4) as _, index (index)}
-				<div class="h-6 w-1 bg-emerald-300 outline outline-2 outline-emerald-300" />
-			{/each}
-		</div>
-	</div>
 </div>
