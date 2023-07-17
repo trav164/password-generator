@@ -1,13 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { password } from '../../password';
+	import { password, isTouched } from '../../password';
 
 	import { passwordStrength } from 'check-password-strength';
 
 	$: textRating = '';
 
 	$: strengthChecker = () => {
+		if (!$isTouched) return 0;
+
 		textRating = passwordStrength($password).value;
+
 		switch (textRating) {
 			case 'Too weak':
 				return 1;
@@ -37,7 +40,7 @@
 
 		{#each Array(4) as _, index (index)}
 			<div
-				class={`h-6 w-1  outline outline-2  ${
+				class={`h-6 w-1 outline outline-2  ${
 					strengthChecker() >= index + 1 ? 'bg-emerald-300 outline-emerald-300' : 'outline-zinc-400'
 				}`}
 			/>

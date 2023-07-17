@@ -32,4 +32,6 @@ export const settings = writable([
     }
 ]);
 
-export const passwordLength = writable(5);
+export const passwordLength = writable(0);
+
+export const isTouched = writable(false);

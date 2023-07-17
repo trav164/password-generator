@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { passwordLength, settings, password } from '../../password';
+	import { passwordLength, settings, password, isTouched } from '../../password';
 	import Rating from './Rating.svelte';
 	import Settings from './Settings.svelte';
 
 	const generate = () => {
+		console.warn('when is this called');
 		// https://stackoverflow.com/questions/70706563/javascript-password-generator-sometimes-not-including-character-selections
 
 		// THIS METHOD IS A MESS AND NEEDS IMPROVING
@@ -44,6 +45,7 @@
 		});
 
 		password.set(shuffleStr(str).substring(0, $passwordLength));
+		isTouched.set(true);
 	};
 
 	$: isValid = $settings.some((x) => {
