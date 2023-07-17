@@ -25,4 +25,4 @@ export const settings = writable([
     }
 ]);
 
-export const passwordLength = writable(0);
+export const passwordLength = writable(5);
