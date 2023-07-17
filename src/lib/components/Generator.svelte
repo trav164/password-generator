@@ -3,21 +3,13 @@
 	import Settings from './Settings.svelte';
 
 	const generate = () => {
+		// https://stackoverflow.com/questions/70706563/javascript-password-generator-sometimes-not-including-character-selections
+
+		// THIS METHOD IS A MESS AND NEEDS IMPROVING
 		const lowercase = 'abcdefghijklmnopqrstuvwxyz';
 		const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		const numbers = '0123456789';
-		const specialCharacters = "!@#$%&'()*+,^-./:;<=>?[]_`{~}|";
-
-		let completeList = [];
-
-		let genPassword = '';
-
-		const array = new Uint32Array(lowercase.length);
-		window.crypto.getRandomValues(new BigUint64Array(2));
-
-		for (let i = 0; i < $passwordLength; i++) {
-			genPassword += lowercase[array[i] % lowercase.length];
-		}
+		const symbols = "!@#$%&'()*+,^-./:;<=>?[]_`{~}|";
 
 		const shuffleStr = (str: string) =>
 			str
@@ -31,15 +23,26 @@
 
 		let str = '';
 		str += shuffleStr(lowercase.repeat(factor)).substring(0, factor);
-		// if (options.numbers) str += shuffleStr(chars.num.repeat(factor)).substr(0, factor);
-		// if (options.special) str += shuffleStr(chars.specialChar.repeat(factor)).substr(0, factor);
-		// if (options.lowerCase) str += shuffleStr(chars.lowerCase.repeat(factor)).substr(0, factor);
-		// if (options.upperCase) str += shuffleStr(chars.upperCase.repeat(factor)).substr(0, factor);
-		// if (options.custom) str += shuffleStr(chars.custom.repeat(factor)).substr(0, factor);
 
-		console.warn('Generating Password', str);
+		$settings.map((s) => {
+			if (s.state && s.name === 'lowercase') {
+				str += shuffleStr(lowercase.repeat(factor)).substring(0, factor);
+			}
 
-		password.set(genPassword);
+			if (s.state && s.name === 'uppercase') {
+				str += shuffleStr(uppercase.repeat(factor)).substring(0, factor);
+			}
+
+			if (s.state && s.name === 'symbols') {
+				str += shuffleStr(symbols.repeat(factor)).substring(0, factor);
+			}
+
+			if (s.state && s.name === 'numbers') {
+				str += shuffleStr(numbers.repeat(factor)).substring(0, factor);
+			}
+		});
+
+		password.set(shuffleStr(str).substring(0, $passwordLength));
 	};
 
 	$: isValid = $settings.some((x) => {

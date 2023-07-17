@@ -2,6 +2,13 @@ import { writable } from "svelte/store";
 
 export const password = writable("P4$5W0rD!");
 
+// export const settings = writable({
+//     numbers: false,
+//     special: false,
+//     lowercase: false,
+//     uppercase: false,
+// })
+
 export const settings = writable([
     {
         name: 'uppercase',
