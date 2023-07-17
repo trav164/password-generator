@@ -61,18 +61,19 @@
 		</div>
 
 		<div class="flex w-full items-center justify-between bg-zinc-950 px-8 py-6">
-			<span class=" font-bold uppercase tracking-widest text-zinc-400">Strength</span>
+			<span class="font-bold uppercase text-zinc-400">Strength</span>
 
-			<div class="flex flex-row gap-3">
-				<div class="h-6 w-1 outline outline-2 outline-zinc-400" />
-				<div class="h-6 w-1 outline outline-2 outline-zinc-400" />
-				<div class="h-6 w-1 outline outline-2 outline-zinc-400" />
+			<div class="flex flex-row items-center justify-center gap-3">
+				<span class="mr-1 text-2xl uppercase text-zinc-300">Medium</span>
+				<div class="h-6 w-1 bg-yellow-300 outline outline-2 outline-yellow-300" />
+				<div class="h-6 w-1 bg-yellow-300 outline outline-2 outline-yellow-300" />
+				<div class="h-6 w-1 bg-yellow-300 outline outline-2 outline-yellow-300" />
 				<div class="h-6 w-1 outline outline-2 outline-zinc-400" />
 			</div>
 		</div>
 
 		<button
-			class="flex flex-row items-center justify-center gap-2 bg-emerald-300 py-4 font-semibold uppercase text-zinc-950"
+			class="flex flex-row items-center justify-center gap-2 bg-emerald-300 py-4 font-semibold uppercase text-zinc-950 outline outline-2 outline-emerald-300 transition-all duration-300 hover:bg-transparent hover:text-emerald-300"
 		>
 			<span>Generate</span>
 			<svg
