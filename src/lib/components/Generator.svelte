@@ -66,11 +66,16 @@
 			<span class="text-xs font-bold uppercase text-zinc-400 md:text-base">Strength</span>
 
 			<div class="flex flex-row items-center justify-center gap-3">
-				<span class="mr-1 text-sm uppercase text-zinc-300 md:text-2xl">Medium</span>
+				<span class="mr-1 text-sm uppercase text-zinc-300 md:text-2xl">strong</span>
+
+				{#each Array(4) as _, index (index)}
+					<div class="h-6 w-1 bg-emerald-300 outline outline-2 outline-emerald-300" />
+				{/each}
+
+				<!-- <div class="h-6 w-1 bg-yellow-300 outline outline-2 outline-yellow-300" />
 				<div class="h-6 w-1 bg-yellow-300 outline outline-2 outline-yellow-300" />
 				<div class="h-6 w-1 bg-yellow-300 outline outline-2 outline-yellow-300" />
-				<div class="h-6 w-1 bg-yellow-300 outline outline-2 outline-yellow-300" />
-				<div class="h-6 w-1 outline outline-2 outline-zinc-400" />
+				<div class="h-6 w-1 outline outline-2 outline-zinc-400" /> -->
 			</div>
 		</div>
 
