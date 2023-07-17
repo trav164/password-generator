@@ -1,8 +1,16 @@
 <script lang="ts">
 	import { password } from '../../password';
 
+	$: copiedNotification = false;
+
 	const copyPassword = () => {
 		navigator.clipboard.writeText($password);
+
+		copiedNotification = true;
+
+		setTimeout(() => {
+			copiedNotification = false;
+		}, 3000);
 	};
 </script>
 
@@ -13,7 +21,15 @@
 		}`}>{$password}</span
 	>
 
-	<button on:click|preventDefault={() => copyPassword()}>
+	<button
+		class="flex flex-row items-center justify-center gap-2"
+		on:click|preventDefault={() => copyPassword()}
+	>
+		<span
+			class={`transition-all duration-500 ${
+				copiedNotification ? 'text-zinc-300 opacity-100' : 'opacity-0'
+			}`}>Copied</span
+		>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			class="icon icon-tabler icon-tabler-copy text-emerald-300 transition-all duration-300 hover:text-zinc-200"

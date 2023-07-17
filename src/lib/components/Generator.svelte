@@ -4,7 +4,6 @@
 	import Settings from './Settings.svelte';
 
 	const generate = () => {
-		console.warn('when is this called');
 		// https://stackoverflow.com/questions/70706563/javascript-password-generator-sometimes-not-including-character-selections
 
 		// THIS METHOD IS A MESS AND NEEDS IMPROVING
