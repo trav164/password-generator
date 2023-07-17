@@ -12,7 +12,7 @@
 	<button on:click|preventDefault={() => copyPassword()}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			class="icon icon-tabler icon-tabler-copy text-emerald-300 hover:text-emerald-400"
+			class="icon icon-tabler icon-tabler-copy text-emerald-300 transition-all duration-300 hover:text-zinc-200"
 			width="32"
 			height="32"
 			viewBox="0 0 24 24"
