@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { password, isTouched } from '../../password';
 
 	import { passwordStrength } from 'check-password-strength';
@@ -8,6 +7,8 @@
 
 	$: strengthChecker = () => {
 		if (!$isTouched) return 0;
+
+		// This rating is very poor and needs improving. Thinking of removing the external lib and creating some sort of internal rating.
 
 		textRating = passwordStrength($password).value;
 
