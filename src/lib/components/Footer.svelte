@@ -1,16 +1,14 @@
-<div class="flex w-full flex-col items-center justify-center gap-4 md:flex-row">
-	<p class="text-zinc-300">
-		Created by <a href="lewistravis.co.uk" class="font-semibold text-white hover:text-emerald-300"
-			>Lewis Travis</a
-		>.
+<div class="flex w-full flex-col items-center justify-center gap-4">
+	<p class="p-4 text-zinc-300">
+		Lunchtime collab - <a
+			href="lewistravis.co.uk"
+			class="font-semibold text-white hover:text-emerald-300">Lewis Travis</a
+		>
+		👨🏼‍💻 &
+		<a class="font-semibold text-white hover:text-emerald-300" href="https://twitter.com/amritnagi"
+			>Amrit Nagi</a
+		> 🎨
 	</p>
-
-	<!-- <p class="text-xs text-zinc-300">
-		Inspiration from <a
-			href="https://github.com/amritnagi"
-			class="font-semibold text-white hover:text-emerald-300">Amrit Nagi</a
-		>.
-	</p> -->
 
 	<div class="flex flex-row gap-4 md:gap-2">
 		<a class="transition-all duration-300 hover:-translate-y-1" href="https://github.com/trav164">
