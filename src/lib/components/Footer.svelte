@@ -5,6 +5,13 @@
 		>.
 	</p>
 
+	<!-- <p class="text-xs text-zinc-300">
+		Inspiration from <a
+			href="https://github.com/amritnagi"
+			class="font-semibold text-white hover:text-emerald-300">Amrit Nagi</a
+		>.
+	</p> -->
+
 	<div class="flex flex-row gap-4 md:gap-2">
 		<a class="transition-all duration-300 hover:-translate-y-1" href="https://github.com/trav164">
 			<svg
