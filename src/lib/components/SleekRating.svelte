@@ -1,3 +1,11 @@
+<script lang="ts">
+	import { passwordStrength } from '../../password';
+</script>
 
-
-<div class="h-1 w-4/5 bg-emerald-300" />
+<div class="flex w-full">
+	<progress
+		max="4"
+		value={$passwordStrength}
+		class="w-full [&::-moz-progress-bar]:bg-emerald-300 [&::-webkit-progress-bar]:h-1 [&::-webkit-progress-bar]:bg-zinc-600 [&::-webkit-progress-value]:bg-emerald-300"
+	/>
+</div>

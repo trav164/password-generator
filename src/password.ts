@@ -2,6 +2,8 @@ import { writable } from "svelte/store";
 
 export const password = writable("P4$5W0rD!");
 
+export const passwordStrength = writable(0);
+
 export const IsSettingsOpen = writable(false);
 
 export const settings = writable([

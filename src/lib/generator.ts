@@ -1,4 +1,6 @@
-import { isTouched, password } from "../password";
+import { isTouched, password, passwordStrength } from "../password";
+
+import z from 'zxcvbn';
 
 export const generatePassword = (settings: PasswordSettings[], passwordLength: number) => {
     // https://stackoverflow.com/questions/68617403/how-to-properly-generate-a-random-password-with-the-window-crypto-property
@@ -26,5 +28,12 @@ export const generatePassword = (settings: PasswordSettings[], passwordLength: n
     }
 
     password.set(generatedPassword);
+
+    passwordStrength.set(calculateStrength(generatedPassword));
+
     isTouched.set(true);
 };
+
+const calculateStrength = (password: string) => {
+    return z(password).score;
+}
