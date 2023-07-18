@@ -1,5 +1,9 @@
 <script lang="ts">
-	import { password } from '../../password';
+	import CopyIcon from '$lib/assets/CopyIcon.svelte';
+	import RefreshIcon from '$lib/assets/RefreshIcon.svelte';
+	import SettingsIcon from '$lib/assets/SettingsIcon.svelte';
+	import { generatePassword } from '$lib/generator';
+	import { password, settings, passwordLength, IsSettingsOpen } from '../../password';
 
 	$: copiedNotification = false;
 
@@ -25,26 +29,16 @@
 		class="flex flex-row items-center justify-center gap-2"
 		on:click|preventDefault={() => copyPassword()}
 	>
-		<span
-			class={`transition-all duration-500 ${
-				copiedNotification ? 'text-zinc-300 opacity-100' : 'opacity-0'
-			}`}>Copied</span
-		>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			class="icon icon-tabler icon-tabler-copy text-emerald-300 transition-all duration-300 hover:text-zinc-200"
-			width="32"
-			height="32"
-			viewBox="0 0 24 24"
-			stroke-width="2"
-			stroke="currentColor"
-			fill="none"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-		>
-			<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-			<path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
-			<path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" />
-		</svg>
+		<div class="flex flex-row gap-6">
+			<button on:click|preventDefault={() => generatePassword($settings, $passwordLength)}>
+				<RefreshIcon />
+			</button>
+
+			<CopyIcon />
+
+			<button on:click|preventDefault={() => IsSettingsOpen.set(!$IsSettingsOpen)}>
+				<SettingsIcon />
+			</button>
+		</div>
 	</button>
 </div>

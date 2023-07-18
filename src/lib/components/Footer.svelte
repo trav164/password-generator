@@ -1,15 +1,10 @@
-<p class="text-zinc-300">
-	Created by <a href="lewistravis.co.uk" class="font-semibold text-white hover:text-emerald-300"
-		>Lewis Travis</a
-	>. Inspired by the challenge on
-	<a
-		class="font-semibold text-white hover:text-emerald-300"
-		href="https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh"
-		>Frontend Mentor</a
-	>.
-</p>
+<div class="flex w-full flex-row items-center justify-center gap-4">
+	<p class="text-zinc-300">
+		Created by <a href="lewistravis.co.uk" class="font-semibold text-white hover:text-emerald-300"
+			>Lewis Travis</a
+		>.
+	</p>
 
-<div class=" flex w-full flex-row items-center justify-center gap-6">
 	<a class="transition-all duration-300 hover:-translate-y-1" href="https://github.com/trav164">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"

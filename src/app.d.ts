@@ -6,7 +6,16 @@ declare global {
 		// interface Locals {}
 		// interface PageData {}
 		// interface Platform {}
+
+
+	}
+
+	interface PasswordSettings {
+		// name: 'uppercase' | 'lowercase' | 'symbols' | 'numbers';
+		name: string;
+		label: string;
+		state: boolean;
 	}
 }
 
-export {};
+export { };

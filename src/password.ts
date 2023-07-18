@@ -2,36 +2,31 @@ import { writable } from "svelte/store";
 
 export const password = writable("P4$5W0rD!");
 
-// export const settings = writable({
-//     numbers: false,
-//     special: false,
-//     lowercase: false,
-//     uppercase: false,
-// })
+export const IsSettingsOpen = writable(false);
 
 export const settings = writable([
     {
         name: 'uppercase',
         label: 'Include Uppercase Letters',
-        state: false
+        state: true
     },
     {
         name: 'lowercase',
         label: 'Include Lowercase Letters',
-        state: false
+        state: true
     },
     {
         name: 'numbers',
         label: 'Include Numbers',
-        state: false
+        state: true
     },
     {
         name: 'symbols',
         label: 'Include Symbols',
-        state: false
+        state: true
     }
 ]);
 
-export const passwordLength = writable(0);
+export const passwordLength = writable(12);
 
 export const isTouched = writable(false);
