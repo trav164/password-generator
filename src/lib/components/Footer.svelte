@@ -1,12 +1,13 @@
 <div class="flex w-full flex-col items-center justify-center gap-4">
-	<p class="p-4 text-zinc-300">
+	<p class="p-4 text-zinc-400">
 		Lunchtime collab - <a
 			href="https://www.lewistravis.co.uk/"
-			class="font-semibold text-white hover:text-emerald-300">Lewis Travis</a
+			class="font-semibold text-zinc-300 hover:text-emerald-300">Lewis Travis</a
 		>
 		👨🏼‍💻 &
-		<a class="font-semibold text-white hover:text-emerald-300" href="https://twitter.com/amritnagi"
-			>Amrit Nagi</a
+		<a
+			class="font-semibold text-zinc-300 hover:text-emerald-300"
+			href="https://twitter.com/amritnagi">Amrit Nagi</a
 		> 🎨
 	</p>
 
@@ -14,7 +15,7 @@
 		<a class="transition-all duration-300 hover:-translate-y-1" href="https://github.com/trav164">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				class="icon icon-tabler icon-tabler-brand-github text-zinc-300 hover:text-emerald-300"
+				class="icon icon-tabler icon-tabler-brand-github text-zinc-400 hover:text-emerald-300"
 				width="32"
 				height="32"
 				viewBox="0 0 24 24"
@@ -36,7 +37,7 @@
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				class="icon icon-tabler icon-tabler-brand-linkedin text-zinc-300 hover:text-emerald-300"
+				class="icon icon-tabler icon-tabler-brand-linkedin text-zinc-400 hover:text-emerald-300"
 				width="32"
 				height="32"
 				viewBox="0 0 24 24"
