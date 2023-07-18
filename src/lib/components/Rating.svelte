@@ -1,32 +1,25 @@
 <script lang="ts">
-	import { password, isTouched } from '../../password';
-
-	import { passwordStrength } from 'check-password-strength';
+	import { passwordStrength } from '../../password';
 
 	$: textRating = '';
+	$: $passwordStrength, calculateTextRating();
 
-	$: strengthChecker = () => {
-		if (!$isTouched) return 0;
-
-		// This rating is very poor and needs improving. Thinking of removing the external lib and creating some sort of internal rating.
-
-		textRating = passwordStrength($password).value;
-
-		switch (textRating) {
-			case 'Too weak':
-				return 1;
+	const calculateTextRating = () => {
+		switch ($passwordStrength) {
+			case 1:
+				textRating = 'Weak';
 				break;
-			case 'Weak':
-				return 2;
+			case 2:
+				textRating = 'Medium';
 				break;
-			case 'Medium':
-				return 3;
+			case 3:
+				textRating = 'Strong';
 				break;
-			case 'Strong':
-				return 4;
+			case 4:
+				textRating = 'Very Strong';
 				break;
 			default:
-				return 0;
+				break;
 		}
 	};
 </script>
@@ -42,7 +35,7 @@
 		{#each Array(4) as _, index (index)}
 			<div
 				class={`h-6 w-1 outline outline-2  ${
-					strengthChecker() >= index + 1 ? 'bg-emerald-300 outline-emerald-300' : 'outline-zinc-400'
+					$passwordStrength >= index + 1 ? 'bg-emerald-300 outline-emerald-300' : 'outline-zinc-400'
 				}`}
 			/>
 		{/each}
