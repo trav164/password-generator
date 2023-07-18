@@ -19,13 +19,13 @@
 		}, 3000);
 	};
 
-	// Used to glow newly generated password for 700ms
+	// Used to glow newly generated password for 300ms
 	$: newPw = false;
 	password.subscribe(() => {
 		newPw = true;
 		setTimeout(() => {
 			newPw = false;
-		}, 700);
+		}, 300);
 	});
 </script>
 
@@ -39,7 +39,7 @@
 	{:else}
 		<span
 			in:fade
-			class={`text-xl font-semibold transition-colors duration-700 ease-out md:text-3xl ${
+			class={`text-xl font-semibold transition-colors duration-300 ease-out md:text-3xl ${
 				newPw ? 'text-emerald-300' : 'text-zinc-200'
 			}`}>{$password}</span
 		>
