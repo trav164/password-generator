@@ -2,19 +2,25 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Generator from '$lib/components/Generator.svelte';
 	import PasswordDisplay from '$lib/components/PasswordDisplay.svelte';
+	import { generatePassword } from '$lib/generator';
+	import { onMount } from 'svelte';
+	import { passwordLength, settings } from '../password';
+
+	onMount(() => {
+		generatePassword($settings, $passwordLength);
+	});
 </script>
 
 <svelte:head>
 	<title>Password Generator</title>
 </svelte:head>
 
-<main class="flex flex-col gap-6">
-	<h1 class="mx-auto text-2xl text-zinc-600">Password Generator</h1>
+<main class="flex flex-col justify-start gap-6">
+	<h1 class="mx-auto text-2xl text-zinc-500">Password Generator</h1>
+	<div class="flex flex-col">
+		<PasswordDisplay />
+	</div>
 
-	<!-- <pre class="text-white">{JSON.stringify($passwordLength)}</pre>
-	<pre class="text-white">{JSON.stringify($password)}</pre>
-	<pre class="text-white">{JSON.stringify($settings)}</pre> -->
-	<PasswordDisplay />
 	<Generator />
 	<Footer />
 </main>
