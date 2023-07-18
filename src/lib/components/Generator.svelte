@@ -4,46 +4,31 @@
 	import Settings from './Settings.svelte';
 
 	const generate = () => {
-		// https://stackoverflow.com/questions/70706563/javascript-password-generator-sometimes-not-including-character-selections
+		// https://stackoverflow.com/questions/68617403/how-to-properly-generate-a-random-password-with-the-window-crypto-property
 
-		// THIS METHOD IS A MESS AND NEEDS IMPROVING
 		const lowercase = 'abcdefghijklmnopqrstuvwxyz';
 		const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		const numbers = '0123456789';
 		const symbols = "!@#$%&'()*+,^-./:;<=>?[]_`{~}|";
 
-		const shuffleStr = (str: string) =>
-			str
-				.split('')
-				.sort(() => 0.5 - Math.random())
-				.join('');
+		let chars: string[] = [];
+		let generatedPassword = '';
 
-		const factor = Math.ceil(
-			$passwordLength / Object.values($settings).reduce((a, b) => (b ? a + 1 : a), 0)
-		);
-
-		let str = '';
-		str += shuffleStr(lowercase.repeat(factor)).substring(0, factor);
-
-		$settings.map((s) => {
-			if (s.state && s.name === 'lowercase') {
-				str += shuffleStr(lowercase.repeat(factor)).substring(0, factor);
-			}
-
-			if (s.state && s.name === 'uppercase') {
-				str += shuffleStr(uppercase.repeat(factor)).substring(0, factor);
-			}
-
-			if (s.state && s.name === 'symbols') {
-				str += shuffleStr(symbols.repeat(factor)).substring(0, factor);
-			}
-
-			if (s.state && s.name === 'numbers') {
-				str += shuffleStr(numbers.repeat(factor)).substring(0, factor);
-			}
+		$settings.map((setting) => {
+			if (setting.state && setting.name === 'lowercase') chars.push(...lowercase);
+			if (setting.state && setting.name === 'uppercase') chars.push(...uppercase);
+			if (setting.state && setting.name === 'symbols') chars.push(...symbols);
+			if (setting.state && setting.name === 'numbers') chars.push(...numbers);
 		});
 
-		password.set(shuffleStr(str).substring(0, $passwordLength));
+		const array = new Uint32Array(chars.length);
+		window.crypto.getRandomValues(array);
+
+		for (let i = 0; i < $passwordLength; i++) {
+			generatedPassword += chars[array[i] % chars.length];
+		}
+
+		password.set(generatedPassword);
 		isTouched.set(true);
 	};
 
@@ -52,7 +37,6 @@
 	});
 </script>
 
-<!-- <pre class="text-white">{JSON.stringify(isValid)}</pre> -->
 <div class="flex w-full flex-col gap-8 bg-zinc-900 px-10 py-10 tracking-wide">
 	<Settings />
 
