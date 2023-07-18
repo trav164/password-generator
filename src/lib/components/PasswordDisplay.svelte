@@ -18,6 +18,15 @@
 			copiedNotification = false;
 		}, 3000);
 	};
+
+	// Used to glow newly generated password for 700ms
+	$: newPw = false;
+	password.subscribe(() => {
+		newPw = true;
+		setTimeout(() => {
+			newPw = false;
+		}, 700);
+	});
 </script>
 
 <div class="flex w-full items-center justify-between bg-zinc-900 px-8 py-6">
@@ -30,8 +39,8 @@
 	{:else}
 		<span
 			in:fade
-			class={`text-xl font-semibold md:text-3xl  ${
-				$password !== 'P4$5W0rD!' ? 'text-zinc-200' : 'text-zinc-600'
+			class={`text-xl font-semibold transition-colors duration-700 ease-out md:text-3xl ${
+				newPw ? 'text-emerald-300' : 'text-zinc-200'
 			}`}>{$password}</span
 		>
 	{/if}
