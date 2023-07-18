@@ -6,6 +6,8 @@
 
 	const calculateTextRating = () => {
 		switch ($passwordStrength) {
+			case 0:
+				textRating = 'Too Weak';
 			case 1:
 				textRating = 'Weak';
 				break;

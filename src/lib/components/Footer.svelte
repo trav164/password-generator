@@ -1,7 +1,7 @@
 <div class="flex w-full flex-col items-center justify-center gap-4">
 	<p class="p-4 text-zinc-300">
 		Lunchtime collab - <a
-			href="lewistravis.co.uk"
+			href="https://www.lewistravis.co.uk/"
 			class="font-semibold text-white hover:text-emerald-300">Lewis Travis</a
 		>
 		👨🏼‍💻 &
