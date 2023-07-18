@@ -1,6 +1,6 @@
 <svg
 	xmlns="http://www.w3.org/2000/svg"
-	class="icon icon-tabler icon-tabler-refresh text-emerald-300 hover:text-zinc-300"
+	class="icon icon-tabler icon-tabler-refresh h-6 w-6 text-emerald-300 transition-all duration-300 group-hover:text-zinc-300 md:h-10 md:w-10"
 	width="36"
 	height="36"
 	viewBox="0 0 24 24"
