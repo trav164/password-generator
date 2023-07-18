@@ -55,28 +55,28 @@
 
 <!-- MOBILE FRIENDLY VERSION -->
 
-<div class="flex w-full flex-1 flex-row items-center justify-center gap-4 p-2">
+<div class="flex w-full flex-row items-center justify-between gap-4 px-3 py-2 md:hidden">
 	<button
-		class="group flex flex-row items-center gap-2 p-2 transition-all duration-300 hover:bg-zinc-900"
+		class="group flex w-full flex-col items-center gap-2 p-4 transition-all duration-300 hover:bg-zinc-900"
 		on:click|preventDefault={() => generatePassword($settings, $passwordLength)}
 	>
-		<RefreshIcon />
 		<span class="text-sm text-zinc-300">Generate</span>
+		<RefreshIcon />
 	</button>
 
 	<button
-		class="t group flex flex-row items-center gap-2 p-2"
+		class="group flex w-full flex-col items-center gap-2 p-4 transition-all duration-300 hover:bg-zinc-900"
 		on:click|preventDefault={() => copyPassword()}
 	>
-		<CopyIcon />
 		<span class="text-sm text-zinc-300">Copy</span>
+		<CopyIcon />
 	</button>
 
 	<button
-		class="t group flex flex-row items-center gap-2 p-2"
+		class="group flex w-full flex-col items-center gap-2 p-4 transition-all duration-300 hover:bg-zinc-900"
 		on:click|preventDefault={() => IsSettingsOpen.set(!$IsSettingsOpen)}
 	>
-		<SettingsIcon />
 		<span class="text-sm text-zinc-300">Settings</span>
+		<SettingsIcon />
 	</button>
 </div>
