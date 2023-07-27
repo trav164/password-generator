@@ -32,7 +32,7 @@
 			</svg>
 		</a>
 		<a
-			class="transition-all duration-300 hover:-translate-y-1"
+			class="text-center transition-all duration-300 hover:-translate-y-1"
 			href="https://www.linkedin.com/in/lewis-travis-43656ab5/"
 		>
 			<svg
